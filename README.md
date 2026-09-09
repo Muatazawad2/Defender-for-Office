@@ -6,7 +6,7 @@ Build a **repeat offender** list from Microsoft Defender for Office 365 Attack s
 
 ## The problem
 
-Defender has a built-in *Repeat offender threshold* setting. Read its description carefully:
+Defender has a built-in *Repeat offender threshold* setting under **Attack simulation training → Settings**. Read its description carefully:
 
 ![Built-in repeat offender setting](docs/images/01-builtin-repeat-offender-setting.png)
 
@@ -71,7 +71,22 @@ These do different jobs and are often confused:
 
 A user with consent but no security role gets nothing, so granting consent is not a backdoor.
 
-`AttackSimulation.Read.All` is an **admin-consent** permission. The first person to run this in a tenant must be an admin, and should tick **"Consent on behalf of your organization"** — otherwise only that admin can ever run it, and everyone else needs them every time.
+`AttackSimulation.Read.All` is an **admin-consent** permission. The first person to run this in a tenant sees this prompt:
+
+![Permissions requested](docs/images/04-consent-screen.png)
+
+Note three things:
+
+1. **The app is `Microsoft Graph Command Line Tools`**, published and verified by Microsoft Corporation. The script does not register an application of its own — it uses this first-party Microsoft client.
+2. **`Read attack simulation data of an organization`** is the only meaningful permission requested. It is read-only.
+3. **The checkbox matters.**
+
+| Checkbox | Result |
+|---|---|
+| ☑ **Ticked** | Tenant-wide. Anyone with a qualifying Entra role can run the script from then on. |
+| ☐ Not ticked | Only that one admin can ever run it. Everyone else is blocked and must go back to an admin each time. |
+
+Tick it. Consent is then recorded permanently and nobody sees this screen again — though users will still **sign in** normally when their token expires. Signing in and consenting are different things.
 
 ---
 
