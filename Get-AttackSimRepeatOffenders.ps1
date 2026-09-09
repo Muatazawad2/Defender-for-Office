@@ -95,8 +95,8 @@
     Last 90 days; prompts only for the click threshold.
 
 .NOTES
-    Author      : Muataz Awad
-    Role        : Cloud Solution Architect - Security, Microsoft
+    Author      : Dr. Muataz Awad
+    Role        : Principal Cloud Solution Architect - Security
     Created     : September 2026
 
     REQUIREMENTS

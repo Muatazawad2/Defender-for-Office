@@ -291,8 +291,8 @@ The gap between the last two rows is the entire reason this script exists.
 
 ## Author
 
-**Muataz Awad**
-Cloud Solution Architect — Security, Microsoft
+**Dr. Muataz Awad**
+Principal Cloud Solution Architect — Security
 
 ---
 
