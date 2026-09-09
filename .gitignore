@@ -1,0 +1,3 @@
+# Ignore generated reports - they contain real user data
+AttackSimRepeatOffenders_*.csv
+*.bak
